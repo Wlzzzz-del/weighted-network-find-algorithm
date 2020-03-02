@@ -14,3 +14,5 @@ from collections import defaultdict
 # how to assess the algorithm  
 I will give some other compared algorithm like cpm,conga,lfm and so on and get their Modularity to compare their effect.
 
+# datasets
+cond-mat-2003,dolphins,football,hep-th,karate,lesmis,netscience,polbooks
