@@ -6,7 +6,7 @@ from collections import defaultdict
 
 'process karate dataset into weights'
 def process_karate(G):
-    a = pd.read_excel('./工作簿1.xlsx')
+    a = pd.read_excel('./karate weighted data.xlsx')
     G.add_weighted_edges_from(a.values.tolist(),weight='value')
     return G
 
@@ -162,3 +162,98 @@ def judge_road_to_sim(G,vi,vj):
         return 0
     else:
         return sim_vi_vj_unconnet(G,vi,vj)
+
+def count_avg_com(G,com,center):
+    a=[]
+    sim=0
+    cj=len(com[center])
+    for i in com[center]:
+        a.append(i)
+        for n in com[center]:
+            if n not in a:
+                sim=sim+judge_road_to_sim(G,i,n)
+    if cj ==1:
+        return  (2*sim)/2
+    return (2*sim)/(cj*(cj-1))
+
+def update_center(G,com):
+    com_new={}
+    I={}
+    for i in com:
+        index={}
+        a=[]
+        sim=0
+        if len(com[i])==1:
+            I[i]=i
+            continue
+        for n in com[i]:
+            a.append(n)
+            for k in com[i]:
+                if k not in a:
+                    sim=sim+judge_road_to_sim(G,n,k)
+            index[sim/len(com[i])]=n
+        I[index[max(index.keys())]]=i
+    for i in I:
+        com_new[i]=com[I[i]]
+    return com_new
+
+def find_com(G, com, node):
+    for i in list(com):
+        #         print(i)
+        for n in list(com[i]):
+            #             print(n)
+            if node == n:
+                return i
+    return 0
+
+def del_node(node, com):
+    for i in list(com):
+        for n in list(com[i]):
+            if node == n:
+                com[i].remove(n)
+    return com
+
+def count_uc(G,com,node,c):
+    nei=list(G.__getitem__(node))
+    center=c
+    sim=0
+    sim_=0
+    for i in com[center]:
+        if i in nei:
+            sim=sim+judge_road_to_sim(G,node,i)
+    for n in nei:
+        sim_=sim_+judge_road_to_sim(G,node,n)
+    return (sim/sim_)
+
+def find_vp(G,com,node):
+    nei=list(G.__getitem__(node))
+    a=set()
+    for i in nei:
+        b=find_com(G,com,i)
+        if b !=0:
+            a.add(b)
+    return a
+
+def number_of_com(G,com,node,node_,m):
+    time=0
+    times=0
+    for i in com:
+        for k in com[i]:
+            if k ==node:
+                time=time+1
+            if k==node_:
+                times=times+1
+    try:all=(1/(time*times))*(G[node][node_]['value']-(len(G[node])*len(G[node_]))/m)
+    except:all=0
+    return all
+def count_eqk(G,com):
+    m=2*nx.number_of_edges(G)
+    eqk=0
+    for i in com:
+        a=[]
+        for vp in com[i]:
+            a.append(vp)
+            for vq in com[i]:
+                if vq not in a:
+                    eqk=eqk+number_of_com(G,com,vp,vq,m)
+    return eqk/m
