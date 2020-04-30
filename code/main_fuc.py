@@ -5,7 +5,7 @@ import networkx as nx
 from collections import defaultdict
 import func_lib as fl
 import select_initial_node as sin
-
+# G = nx.read_edgelist('data set/network1.edgelist', nodetype=int, data=(('weight',float),))
 # G=nx.read_gml('data set/lesmis.gml')
 G=fl.process_karate(nx.karate_club_graph())
 for i in range(2,int(math.sqrt(nx.number_of_nodes(G)))):
