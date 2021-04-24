@@ -11,8 +11,22 @@ import networkx as nx
 import math
 from collections import defaultdict
 ```
+# algorithm  
+it seperate the process two steps.One step is seperate the important nodes to be the center of cluster. then check out another node's correlation. Base on the correlation add them to cluster.
+
+# some problem 
+The proposed algorithm simply integrates exist similarity measure, K-means clustering algorithm and set pair theory. The motivation of this study is not clear. 
+
+# about this project  
+it is from one teammate's article. But in some reasons, the article did not be publish. I uploading this project for recording the problem.  
+as you see the comlexity is too large, and the code is not strong, maybe i will fix them someday. 
+
 # how to assess the algorithm  
 I will give some other compared algorithm like cpm,conga,lfm and so on and get their Modularity to compare their effect.
 
 # datasets
 cond-mat-2003,dolphins,football,hep-th,karate,lesmis,netscience,polbooks
+
+# about me
+email:wu_lizhao@yeah.net  
+wechat: xxscoder
