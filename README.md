@@ -1,7 +1,7 @@
 # What is weighted network find algorithm  
 It is a algorithm to process the network data ,after processing the data will be divide to several communities(a community have several nodes and edges),and the algorithm also get the set of overlapping nodes(just means the nodes can be included in different communities)
 
-# about algorithm  
+# libraries  
 The algorithm is based on python  
 Use networkx.pandas.numpy.math.collections
 ```python
@@ -25,7 +25,14 @@ as you see the comlexity is too large, and the code is not strong, maybe i will 
 I will give some other compared algorithm like cpm,conga,lfm and so on and get their Modularity to compare their effect.
 
 # datasets
-cond-mat-2003,dolphins,football,hep-th,karate,lesmis,netscience,polbooks
++ cond-mat-2003
++ dolphins
++ football
++ hep-th
++ karate
++ lesmis
++ netscience
++ polbooks
 
 # about me
 email:wu_lizhao@yeah.net  
