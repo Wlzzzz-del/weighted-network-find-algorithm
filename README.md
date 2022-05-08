@@ -1,6 +1,6 @@
 # update in 2022/5/8
-the code of algorithm in paper: [Set pair three-way overlapping community discovery algorithm for weighted social internet of things](https://www.sciencedirect.com/science/article/pii/S2352864822000530)
-I totally finish the test, but I dont get the name of author, so I decide share these code.
+the code of algorithm in paper: [Set pair three-way overlapping community discovery algorithm for weighted social internet of things](https://www.sciencedirect.com/science/article/pii/S2352864822000530)  
+I totally finish the test, but I dont get the name of author, so I decide share these code.  
 but maybe sth. wrong in this code...
 
 # What is weighted network find algorithm  
