@@ -1,3 +1,8 @@
+# update in 2022/5/8
+the code of algorithm in paper: [paper](https://www.sciencedirect.com/science/article/pii/S2352864822000530)
+I totally finish the test, but I dont get the name of author, so I decide share these code.
+but maybe sth. wrong in this code...
+
 # What is weighted network find algorithm  
 It is a algorithm to process the network data ,after processing the data will be divide to several communities(a community have several nodes and edges),and the algorithm also get the set of overlapping nodes(just means the nodes can be included in different communities)
 
